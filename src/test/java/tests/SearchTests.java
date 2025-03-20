@@ -1,7 +1,5 @@
-package avito.tests;
+package tests;
 
-import avito.pages.CatalogPage;
-import avito.pages.MainPage;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
@@ -9,6 +7,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
+import pages.CatalogPage;
 
 
 @Feature("Тестирование поиска объявлений без активного аккаунта")
@@ -18,12 +17,12 @@ import org.junit.jupiter.params.provider.ValueSource;
         @Tag("withoutLogin")
 })
 public class SearchTests extends TestBase {
-    final MainPage mainPage = new MainPage();
+
     final CatalogPage catalogPage = new CatalogPage();
 
     @CsvFileSource(resources = "/test_data/searchWordInRootCategoryAnimalsWith0ResultTest.csv")
     @ParameterizedTest(name = """
-    Поиск объявлений по ключевому слову - {2} через корневую категорию 'Животные', подкатегории - {1} с 0 результатом""")
+            Поиск объявлений по ключевому слову - {2} через корневую категорию 'Животные', подкатегории - {1} с 0 результатом""")
     @Tag("BLOCKER")
     public void searchWordInRootCategoryAnimalsWith0ResultTest(int subcategoryNum, String subcategoryText,
                                                                String searchWord) {
@@ -37,7 +36,7 @@ public class SearchTests extends TestBase {
         catalogPage.checkBreadcrumbsText(subcategoryText)
                 .checkPageTitleTextOnRequest(searchWord)
                 .checkNotVisiblePageTitleCount()
-                .checkNoResultsTitle();
+                .checkNoResultsTitle("Ничего не найдено в выбранной области поиска");
     }
 
     @ValueSource(strings = {

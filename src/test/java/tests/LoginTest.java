@@ -1,12 +1,11 @@
-package avito.tests;
+package tests;
 
-import avito.pages.AuthPage;
-import avito.pages.MainPage;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
+import pages.AuthPage;
 import utils.RandomUtils;
 
 @Feature("Тестирование входа в аккаунт случайными данными")
@@ -17,7 +16,6 @@ import utils.RandomUtils;
 })
 public class LoginTest extends TestBase {
 
-    final MainPage mainPage = new MainPage();
     final AuthPage authPage = new AuthPage();
     final RandomUtils randomUtils = new RandomUtils();
 
@@ -26,9 +24,9 @@ public class LoginTest extends TestBase {
     @Tag("BLOCKER")
     public void loginErrorWithEmptyLoginAndPasswordTest() {
         mainPage.pressLoginButton();
-        authPage.checkOpenLoginForm()
-                .pressButtonEntry()
-                .errorFillField();
+        authPage.checkOpenLoginForm("Вход")
+                .pressButtonEnter()
+                .errorFillField("Заполните поле");
     }
 
     @Test
@@ -36,10 +34,10 @@ public class LoginTest extends TestBase {
     @Tag("BLOCKER")
     public void loginErrorWithEmptyPasswordTest() {
         mainPage.pressLoginButton();
-        authPage.checkOpenLoginForm()
+        authPage.checkOpenLoginForm("Вход")
                 .enterLogin(randomUtils.getRandomMobilePhoneNumber())
-                .pressButtonEntry()
-                .errorFillField();
+                .pressButtonEnter()
+                .errorFillField("Заполните поле");
     }
 
     @Test
@@ -47,23 +45,23 @@ public class LoginTest extends TestBase {
     @Tag("SMOKE")
     public void loginErrorWithEmptyLoginTest() {
         mainPage.pressLoginButton();
-        authPage.checkOpenLoginForm()
+        authPage.checkOpenLoginForm("Вход")
                 .enterPassword(randomUtils.getRandomPassword())
-                .pressButtonEntry()
-                .errorFillField();
+                .pressButtonEnter()
+                .errorFillField("Заполните поле");
     }
 
     @Test
     @DisplayName("""
-    Появление капчи при заполнении некорректных логина и пароля, ошибка 'Почта не привязана к профилю.\s
-    Проверьте, нет ли опечаток, или войдите по телефону'""")
+            Появление капчи при заполнении некорректных логина и пароля, ошибка 'Почта не привязана к профилю.\s
+            Проверьте, нет ли опечаток, или войдите по телефону'""")
     @Tag("BLOCKER")
     public void inputLoginAndPasswordThenCaptchaTest() {
         mainPage.pressLoginButton();
-        authPage.checkOpenLoginForm()
+        authPage.checkOpenLoginForm("Вход")
                 .enterLogin(randomUtils.getRandomEmailAddress())
                 .enterPassword(randomUtils.getRandomPassword())
-                .pressButtonEntry()
+                .pressButtonEnter()
                 .checkCaptcha();
     }
 
@@ -74,10 +72,10 @@ public class LoginTest extends TestBase {
     @Tag("SMOKE")
     public void inputLoginMore64SymbolsAndPasswordThenCaptchaTest() {
         mainPage.pressLoginButton();
-        authPage.checkOpenLoginForm()
-                .enterLogin(randomUtils.getRandomPhoneNumber65())
+        authPage.checkOpenLoginForm("Вход")
+                .enterLogin(randomUtils.getRandomPhoneNumberWithLength(65))
                 .enterPassword(randomUtils.getRandomPassword())
-                .pressButtonEntry()
+                .pressButtonEnter()
                 .checkCaptcha();
     }
 }

@@ -1,12 +1,12 @@
-package avito.tests;
+package tests;
 
-import avito.pages.MainPage;
 import com.codeborne.selenide.Selenide;
-import config.WebDriverProvider;
+import config.ConfigRunner;
 import helpers.Attach;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
+import pages.MainPage;
 
 import static com.codeborne.selenide.Configuration.browser;
 import static io.qameta.allure.Allure.step;
@@ -17,18 +17,19 @@ public class TestBase {
 
     @BeforeAll
     public static void setUp() {
-        new WebDriverProvider();
+        new ConfigRunner();
     }
 
     @BeforeEach
     void beforeEach() {
         step("Открытие главной страницы", () -> {
             mainPage.openMainPage()
-                    .checkLoadingHeaderNavigation();
+                    .checkLoadingHeaderNavigation("Авито — сайт объявлений");
         });
 
         step("Выбор локации и принятие информации о сборе куков", () -> {
-            mainPage.closeCookieInformation()
+            mainPage.closeModuleAnimation()
+                    .closeCookieInformation()
                     .pressChangeLocation()
                     .clearFieldLocation()
                     .enterSearchLocation("Все регионы")
@@ -47,6 +48,5 @@ public class TestBase {
         }
         Attach.addVideo();
         Selenide.closeWebDriver();
-        Selenide.clearBrowserCookies();
     }
 }

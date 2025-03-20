@@ -1,4 +1,4 @@
-package avito.pages;
+package pages;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
@@ -12,7 +12,7 @@ public class CatalogPage {
     private final SelenideElement breadcrumbs = $("[data-marker='breadcrumbs']"),
             pageTitleText = $("[data-marker='page-title/text']"),
             pageTitleCount = $("[data-marker='page-title/count']"),
-            noResultsTitle = $(".no-results-title-jho0M"),
+            noResultsTitle = $("[class^=no-results-title]"),
             moreExpandButton = $("[data-marker='rubricator/more-expand-button']"),
             subscribeSearchSave = $("[data-marker='subscribe-search/save']");
 
@@ -49,8 +49,8 @@ public class CatalogPage {
     }
 
     @Step("Проверить, что не найдено объявлений, удовлетворяющих условиям поиска")
-    public CatalogPage checkNoResultsTitle() {
-        noResultsTitle.shouldHave(text("Ничего не найдено в выбранной области поиска"));
+    public CatalogPage checkNoResultsTitle(String value) {
+        noResultsTitle.shouldHave(text(value));
         return this;
     }
 

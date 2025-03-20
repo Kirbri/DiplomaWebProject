@@ -8,18 +8,18 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.util.Map;
 
-public class WebDriverProvider {
+public class ConfigRunner {
     private final WebDriverConfig CONFIG_BROWSER;
     private final LoginConfig CONFIG_CREDENTIALS;
 
-    public WebDriverProvider() {
+    public ConfigRunner() {
         CONFIG_BROWSER = ConfigFactory.create(WebDriverConfig.class, System.getProperties());
         CONFIG_CREDENTIALS = ConfigFactory.create(LoginConfig.class, System.getProperties());
 
-        createWebDriver();
+        setupConfiguration();
     }
 
-    private void createWebDriver() {
+    private void setupConfiguration() {
         if (CONFIG_BROWSER.isRemote()) {
             Configuration.remote = "https://" + CONFIG_CREDENTIALS.getRemoteUser() + ":" +
                     CONFIG_CREDENTIALS.getRemotePassword() + "@" + CONFIG_BROWSER.getRemoteUrl() + "/wd/hub";

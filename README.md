@@ -97,7 +97,7 @@ ____
 Для запуска сборки необходимо перейти в раздел Build with Parameters и нажать кнопку Build
 
 <p align="center">  
-<a href="https://jenkins.autotests.cloud/job/009-Kornilova_Ann_qa_guru-java_23/"><img src="src\test\resources\images\screenshot\Jenkins_1.png" alt="Jenkins" width="950"/></a>  
+<a href="https://jenkins.autotests.cloud/job/009-Kornilova_Ann_qa_guru-java_23/"><img src="images\screenshot\Jenkins_1.png" alt="Jenkins" width="950"/></a>  
 </p>
 
 <a id="jenkins_parameters"></a>
@@ -114,7 +114,7 @@ ____
 - **COMMENT** - комментарий для сборки
 
 <p align="center">  
-<a href="https://jenkins.autotests.cloud/job/005-Kornilova_Ann_qa_guru-java_14_jenkins/build?delay=0sec"><img src="src\test\resources\images\screenshot\Jenkins_2.png" alt="Jenkins" width="950"/></a>  
+<a href="https://jenkins.autotests.cloud/job/005-Kornilova_Ann_qa_guru-java_14_jenkins/build?delay=0sec"><img src="images\screenshot\Jenkins_2.png" alt="Jenkins" width="950"/></a>  
 </p>
 
 <a href="#table_of_contents">Наверх</a>
@@ -152,6 +152,10 @@ flowchart LR
 
 ### Локально
 
+<details>
+
+<summary>Раскройте, для просмотра вариантов локального запуска</summary>
+
 **Локальный запуск с параметрами по умолчанию**
 
 *Для теста возьмутся параметры из файла resources/properties/local.properties, для изменения параметров необходимо исправить файл*
@@ -169,7 +173,13 @@ gradle clean web_login_test
 -DbrowserIsRemote=false
 ```
 
+</details>
+
 ### Удалённо
+
+<details>
+
+<summary>Раскройте, для просмотра вариантов удалённого запуска</summary>
 
 **Пример локального запуска с указанием среды выполнения**
 
@@ -193,6 +203,8 @@ ${TASK}
 -DremotePassword=${REMOTE_PASSWORD}
 ```
 
+</details>
+
 <a href="#table_of_contents">Наверх</a>
 
 _____
@@ -203,7 +215,7 @@ _____
 ### Основная страница отчёта
 
 <p align="center">  
-<img title="Allure Overview Dashboard" src="src/test/resources/images/screenshot/Allure_1.png" width="850">  
+<img title="Allure Overview Dashboard" src="images/screenshot/Allure_1.png" width="850">  
 </p>  
 
 ### Тест-кейсы
@@ -212,10 +224,10 @@ _____
 
 <summary>Раскройте, для просмотра</summary>
 <p align="center">  
-<img title="Allure Tests" src="src/test/resources/images/screenshot/Allure_2.png" width="850">  
+<img title="Allure Tests" src="images/screenshot/Allure_2.png" width="850">  
 </p>
 
-</details>>
+</details>
 
 ### Графики
 
@@ -223,12 +235,12 @@ _____
 
 <summary>Раскройте, для просмотра</summary>
   <p align="center">  
-<img title="Allure Graphics" src="src/test/resources/images/screenshot/Allure_3.png" width="850">
+<img title="Allure Graphics" src="images/screenshot/Allure_3.png" width="850">
 
-<img title="Allure Graphics" src="src/test/resources/images/screenshot/Allure_4.png" width="850">  
+<img title="Allure Graphics" src="images/screenshot/Allure_4.png" width="850">  
 </p>
 
-</details>>
+</details>
 
 <a href="#table_of_contents">Наверх</a>
 
@@ -240,13 +252,13 @@ ___
 ### Allure TestOps Dashboard
 
 <p align="center">  
-<img title="Allure TestOps Dashboard" src="src/test/resources/images/screenshot/Allure_TestOps_1.png" width="850">  
+<img title="Allure TestOps Dashboard" src="images/screenshot/Allure_TestOps_1.png" width="850">  
 </p>  
 
 ### Авто тест-кейсы
 
 <p align="center">  
-<img title="Allure TestOps Tests" src="src/test/resources/images/screenshot/Allure_TestOps_2.png" width="850">  
+<img title="Allure TestOps Tests" src="images/screenshot/Allure_TestOps_2.png" width="850">  
 </p>
 
 <a href="#table_of_contents">Наверх</a>
@@ -256,11 +268,11 @@ ___
 ## <a name="Jira">Интеграция с [Jira](https://jira.autotests.cloud/browse/HOMEWORK-1415)</a>
 
 <p align="center">  
-<img title="Jira" src="src/test/resources/images/screenshot/Jira_1.png" width="850">  
+<img title="Jira" src="images/screenshot/Jira_1.png" width="850">  
 </p>
 
 <p align="center">  
-<img title="Jira" src="src/test/resources/images/screenshot/Jira_2.png" width="850">  
+<img title="Jira" src="images/screenshot/Jira_2.png" width="850">  
 </p>
 
 <a href="#table_of_contents">Наверх</a>
@@ -274,7 +286,7 @@ ____
 ###  <a name="Telegram"> Уведомление в Telegram </a>
 
 <p align="center">  
-<img title="Allure Overview Dashboard" src="src/test/resources/images/screenshot/Telegram.png" width="550">  
+<img title="Allure Overview Dashboard" src="images/screenshot/Telegram.png" width="550">  
 </p>
 
 <a href="#table_of_contents">Наверх</a>
@@ -283,11 +295,10 @@ ____
 ###  <a name="Mail"> Уведомление на почту </a>
 
 <p align="center">  
-<img title="Allure Overview Dashboard" src="src/test/resources/images/screenshot/Mail_1.png" width="550">  
+<img title="Allure Overview Dashboard" src="images/screenshot/Mail_1.png" width="550">  
 </p>
 
 <a href="#table_of_contents">Наверх</a>
-
 
 ____
 
@@ -295,45 +306,45 @@ ____
 ##  <a name="Video"> Примеры выполнения тестов </a>
 
 <p align="center">
-<img title="Selenoid Video" src="src/test/resources/images/gif/FavoriteTests_2.gif" width="550" height="350"  alt="video">   
+<img title="Selenoid Video" src="images/gif/FavoriteTests_2.gif" width="550" height="350"  alt="video">   
 </p>
 
 <details>
 <summary>Раскройте, для просмотра</summary>
 <p align="center">
-<img title="Selenoid Video" src="src/test/resources/images/gif/FavoriteTests_2.gif" width="550" height="350"  alt="video">   
+<img title="Selenoid Video" src="images/gif/FavoriteTests_2.gif" width="550" height="350"  alt="video">   
 </p>
 
 <p align="center">
-<img title="Selenoid Video" src="src/test/resources/images/gif/FavoriteTests_3.gif" width="550" height="350"  alt="video">   
+<img title="Selenoid Video" src="images/gif/FavoriteTests_3.gif" width="550" height="350"  alt="video">   
 </p>
 
 <p align="center">
-<img title="Selenoid Video" src="src/test/resources/images/gif/LoginTest_1.gif" width="550" height="350"  alt="video">   
+<img title="Selenoid Video" src="images/gif/LoginTest_1.gif" width="550" height="350"  alt="video">   
 </p>
 
 <p align="center">
-<img title="Selenoid Video" src="src/test/resources/images/gif/LoginTest_1.gif" width="550" height="350"  alt="video">   
+<img title="Selenoid Video" src="images/gif/LoginTest_1.gif" width="550" height="350"  alt="video">   
 </p>
 
 <p align="center">
-<img title="Selenoid Video" src="src/test/resources/images/gif/SearchTests_1.gif" width="550" height="350"  alt="video">   
+<img title="Selenoid Video" src="images/gif/SearchTests_1.gif" width="550" height="350"  alt="video">   
 </p>
 
 <p align="center">
-<img title="Selenoid Video" src="src/test/resources/images/gif/SearchTests_2.gif" width="550" height="350"  alt="video">   
+<img title="Selenoid Video" src="images/gif/SearchTests_2.gif" width="550" height="350"  alt="video">   
 </p>
 
 <p align="center">
-<img title="Selenoid Video" src="src/test/resources/images/gif/SearchTests_3.gif" width="550" height="350"  alt="video">   
+<img title="Selenoid Video" src="images/gif/SearchTests_3.gif" width="550" height="350"  alt="video">   
 </p>
 
 <p align="center">
-<img title="Selenoid Video" src="src/test/resources/images/gif/SearchTests_4.gif" width="550" height="350"  alt="video">   
+<img title="Selenoid Video" src="images/gif/SearchTests_4.gif" width="550" height="350"  alt="video">   
 </p>
 
 <p align="center">
-<img title="Selenoid Video" src="src/test/resources/images/gif/SearchTests_5.gif" width="550" height="350"  alt="video">   
+<img title="Selenoid Video" src="images/gif/SearchTests_5.gif" width="550" height="350"  alt="video">   
 </p>
 </details>
 

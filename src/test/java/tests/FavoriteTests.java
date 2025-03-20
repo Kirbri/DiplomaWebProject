@@ -1,11 +1,14 @@
-package avito.tests;
+package tests;
 
-import avito.pages.*;
 import io.qameta.allure.Feature;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Tags;
 import org.junit.jupiter.api.Test;
+import pages.AuthPage;
+import pages.CatalogPage;
+import pages.FavoritePage;
+import pages.ItemPage;
 import utils.SelenideUtils;
 
 @Feature("Тестирование добавления в избранное и просмотр без активного аккаунта")
@@ -15,7 +18,7 @@ import utils.SelenideUtils;
 })
 
 public class FavoriteTests extends TestBase {
-    final MainPage mainPage = new MainPage();
+
     final AuthPage authPage = new AuthPage();
     final FavoritePage favoritePage = new FavoritePage();
     final CatalogPage catalogPage = new CatalogPage();
@@ -28,8 +31,8 @@ public class FavoriteTests extends TestBase {
     public void addAnnouncementInFavoritesWithoutViewingTest() {
         mainPage.addFirstAnnouncementInFavorite()
                 .openFavoriteAnnouncements();
-        favoritePage.checkPageTitleTextH1()
-                .checkTheNumberOfFavoriteAnnouncements();
+        favoritePage.checkPageTitleTextH1("Избранное")
+                .checkTheNumberOfFavoriteAnnouncements("Все 1");
     }
 
     @Test
@@ -39,8 +42,8 @@ public class FavoriteTests extends TestBase {
         mainPage.addFirstAnnouncementInFavorite();
         selenideUtils.refreshPage();
         mainPage.pressButtonAllFavorites();
-        favoritePage.checkPageTitleTextH1()
-                .checkTheNumberOfFavoriteAnnouncements();
+        favoritePage.checkPageTitleTextH1("Избранное")
+                .checkTheNumberOfFavoriteAnnouncements("Все 1");
     }
 
     @Test
@@ -50,7 +53,7 @@ public class FavoriteTests extends TestBase {
         mainPage.enterSearchWord("Скунс")
                 .searchByKeyword();
         catalogPage.pressSaveSearch();
-        authPage.checkOpenLoginForm();
+        authPage.checkOpenLoginForm("Вход");
     }
 
     @Test
@@ -62,6 +65,6 @@ public class FavoriteTests extends TestBase {
         selenideUtils.goToActiveTab();
         itemPage.checkTitleAnnouncement(mainPage.titleFirstAnnouncement)
                 .subscribeFavoriteSeller();
-        authPage.checkOpenLoginForm();
+        authPage.checkOpenLoginForm("Вход");
     }
 }

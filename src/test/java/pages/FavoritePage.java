@@ -1,4 +1,4 @@
-package avito.pages;
+package pages;
 
 import com.codeborne.selenide.SelenideElement;
 import io.qameta.allure.Step;
@@ -12,14 +12,14 @@ public class FavoritePage {
             itemContentCount = $("[data-marker='favorites-rubricator/item-0/selected']");
 
     @Step("Проверить текстовый заголовок страницы H1")
-    public FavoritePage checkPageTitleTextH1() {
-        titleH1.shouldHave(text("Избранное"));
+    public FavoritePage checkPageTitleTextH1(String value) {
+        titleH1.shouldHave(text(value));
         return this;
     }
 
     @Step("Проверить, что одно объявление добавлено в избранное")
-    public FavoritePage checkTheNumberOfFavoriteAnnouncements() {
-        itemContentCount.shouldHave(exactText("Все1"));
+    public FavoritePage checkTheNumberOfFavoriteAnnouncements(String value) {
+        itemContentCount.shouldHave(exactText(value));
         return this;
     }
 }

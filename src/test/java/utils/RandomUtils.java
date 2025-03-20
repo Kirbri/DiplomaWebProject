@@ -12,8 +12,8 @@ public class RandomUtils {
         return fakerRu.phoneNumber().phoneNumber();
     }
 
-    public String getRandomPhoneNumber65() {
-        return fakerEn.phoneNumber().subscriberNumber(65);
+    public String getRandomPhoneNumberWithLength(int value) {
+        return fakerEn.phoneNumber().subscriberNumber(value);
     }
 
     public String getRandomEmailAddress() {

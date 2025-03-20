@@ -1,4 +1,4 @@
-package avito.pages;
+package pages;
 
 import com.codeborne.selenide.ClickOptions;
 import com.codeborne.selenide.ElementsCollection;
@@ -14,7 +14,7 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class MainPage {
     private final SelenideElement headerNavigation = $("[data-marker='header-navigation'] a"),
-            acceptCookies = $(".styles-module-actions-FRVwZ"),
+            acceptCookies = $("[class^=styles-module-actions]"),
             locationTooltipChange = $("[data-marker='location/tooltip-change']"),
             locationClearButton = $("[data-marker='popup-location/region/clearButton']"),
             locationSearchInput = $("[data-marker='popup-location/region/search-input']"),
@@ -27,9 +27,11 @@ public class MainPage {
             searchBar = $("[data-marker='search-form/suggest/input']"),
             searchListItem = $("[data-marker='suggest/list/item']"),
             headerFavorites = $("[data-marker='header/favorites']"),
-            allFavorites = $(".buyer-location-1wwwiwq"),
+            allFavorites = $("[data-marker='side-block/favorite-block'] [class^=buyer-location]"),
             linkFirstAnnouncement = $("[data-marker='bx-recommendations-block-item'] [data-marker='title']"),
-            loginButton = $("[data-marker='header/login-button']");
+            loginButton = $("[data-marker='header/login-button']"),
+            animationOriginWindow = $("[class^=styles-module-animation-origin-bottom]"),
+            animationOriginButton = $("[class^=styles-module-animation-origin-bottom] [type='button']");
 
     private final ElementsCollection favoriteAnnouncement = $$("[data-marker='favorite']"),
             titlesOfAnnouncement = $$("[itemprop='name']");
@@ -43,14 +45,22 @@ public class MainPage {
     }
 
     @Step("Проверить загрузку элемента header на главной странице")
-    public MainPage checkLoadingHeaderNavigation() {
-        headerNavigation.shouldHave(attribute("title", "Авито — сайт объявлений"));
+    public MainPage checkLoadingHeaderNavigation(String value) {
+        headerNavigation.shouldHave(attribute("title", value));
         return this;
     }
 
     @Step("Нажать 'Хорошо' на информационном окне с политикой о куках")
     public MainPage closeCookieInformation() {
         acceptCookies.click();
+        return this;
+    }
+
+    @Step("Нажать 'Наконец-то' на информационном окне")
+    public MainPage closeModuleAnimation() {
+        if (animationOriginWindow.exists()) {
+            animationOriginButton.click();
+        }
         return this;
     }
 

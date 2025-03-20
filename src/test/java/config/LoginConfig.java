@@ -7,7 +7,7 @@ import org.aeonbits.owner.Config;
         "system:properties"
 })
 
-public interface LoginConfig extends Config{
+public interface LoginConfig extends Config {
     @Key("remoteUser")
     String getRemoteUser();
 
