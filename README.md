@@ -3,7 +3,7 @@
 > Ави́то — российский интернет-сервис для размещения объявлений о товарах, недвижимости, вакансиях и резюме на рынке труда, а также услугах, занимающий первое место в мире среди сайтов объявлений
 
 <p align="center">
-<img title="restful-booker" src="images/screenshot/Avito.png" width="950">
+<img title="avito" src="images/screenshot/Avito.png" width="950">
 </p>
  ____
 
